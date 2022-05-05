@@ -1,0 +1,8 @@
+name: house_prices
+dependencies:
+  - python
+  - ipykernel
+  - numpy
+  - scipy
+  - matplotlib
+  - pytest
