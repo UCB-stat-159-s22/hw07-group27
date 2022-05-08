@@ -1,6 +1,7 @@
 .PHONY : clean
 clean :
 	rm -f figures/*.png
+	rm -f data/*Error*
 
 
 .PHONY : env
