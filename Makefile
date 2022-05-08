@@ -2,7 +2,7 @@
 env:
 	mamba env create -f environment.yml --name housetools
 	bash -ic 'conda activate housetools'
-	bash -ic 'conda activate housetools;python -m ipykernel install --user --name housetools --display-name "IPython -housetools"'
+	bash -ic 'python -m ipykernel install --user --name housetools --display-name "IPython -housetools"'
 
 .PHONY : html
 html:
