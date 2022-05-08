@@ -1,6 +1,7 @@
 .PHONY : env
 env:
 	mamba env create -f environment.yml --name housetools
+	pip install scikit-learn
 	bash -ic 'conda activate housetools'
 	bash -ic 'python -m ipykernel install --user --name housetools --display-name "IPython -housetools"'
 
