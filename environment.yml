@@ -3,6 +3,7 @@ dependencies:
   - python
   - ipykernel
   - numpy
+  - pandas
   - scipy
   - matplotlib
   - pytest
