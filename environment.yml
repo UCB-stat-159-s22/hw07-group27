@@ -1,7 +1,7 @@
 name: house_prices
 dependencies:
   - python
-  - ipykernel
+  - ipykernel 
   - numpy
   - pandas
   - scipy
