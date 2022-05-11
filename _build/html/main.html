@@ -1,0 +1,728 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>What Do Home-Buyer Care About? &#8212; STAT 159 Homework 7</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Data Import" href="combined.html" />
+    <link rel="prev" title="Predicing Housing Prices Based on What Homebuyers Care About Most" href="README.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">STAT 159 Homework 7</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="README.html">
+   Predicing Housing Prices Based on What Homebuyers Care About Most
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Main Analysis
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   What Do Home-Buyer Care About?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="combined.html">
+   Data Import
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/main.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/UCB-stat-159-s22/hw07-group27.git"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/UCB-stat-159-s22/hw07-group27.git/issues/new?title=Issue%20on%20page%20%2Fmain.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/UCB-stat-159-s22/hw07-group27.git/master?urlpath=tree/docs/main.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   What Do Home-Buyer Care About?
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exploratory-data-analysis-on-the-house-price-csv">
+   Exploratory Data Analysis on the House_Price.csv
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#feature-correlation">
+     Feature Correlation
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#observation-on-saleprice">
+     Observation on SalePrice
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fitting-a-random-forest-model-and-variable-improtance">
+   Fitting a Random Forest Model and Variable Improtance
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#author-contributions">
+     Author Contributions:
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>What Do Home-Buyer Care About?</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   What Do Home-Buyer Care About?
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exploratory-data-analysis-on-the-house-price-csv">
+   Exploratory Data Analysis on the House_Price.csv
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#feature-correlation">
+     Feature Correlation
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#observation-on-saleprice">
+     Observation on SalePrice
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fitting-a-random-forest-model-and-variable-improtance">
+   Fitting a Random Forest Model and Variable Improtance
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#author-contributions">
+     Author Contributions:
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="what-do-home-buyer-care-about">
+<h1>What Do Home-Buyer Care About?<a class="headerlink" href="#what-do-home-buyer-care-about" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>What do home-buyer care about? This is a question that any home-seller will be interested! The answer for this question will make sure that home-seller puts much more influence in price-negotiation with buyers! We will try to find the answer for this question by exploring dataset about House Price, which has 79 explanatory variables describing every aspect of residential homes in Ames, Iowa. We will mainly use <strong>Random Forest</strong> model to figure out which variables are the most important one to decide the housing price in Ames.</p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="exploratory-data-analysis-on-the-house-price-csv">
+<h1>Exploratory Data Analysis on the House_Price.csv<a class="headerlink" href="#exploratory-data-analysis-on-the-house-price-csv" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Input</span> <span class="n">In</span> <span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+
+<span class="ne">NameError</span>: name &#39;data&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1460, 81)
+</pre></div>
+</div>
+</div>
+</div>
+<p>The House_Price.csv is consist of 81 columns and 1460 rows. However, we will only use 79 columns for our feature because it includes ID columns, whcih is useless and SalePrice is our output columns, which should not be included as one of the features. First of all, we will use label and one-hot encoding to convert our categorical varibles into dummy variables so that we can start the analysis. We mixed both encoding method, since we figured out that for ordinal categorical variable, the label encoding works better, and for cardinal categorical variable, one-hot encoding works better.</p>
+<div class="section" id="feature-correlation">
+<h2>Feature Correlation<a class="headerlink" href="#feature-correlation" title="Permalink to this headline">¶</a></h2>
+<p>First, we will observe the dataset, and see if we have any inter-relationship between feature that shows high correlation. We don’t have to do any feature selection because first, we don’t have lots of features to investigate, and second, the random forest model’s accuracy doesn’t get suffered from collinearity. Despite of these fact, we want to observe its inter-correlation since observing highly interacting variables might give us some hint to our question, and sometimes removing highly correlated variables help us to mitigate possible danger of overfitting.</p>
+<p>This is the correlation matrix and list of features that have high inter-correlation between the other variables (more than 0.5).</p>
+<p><img alt="correlation_plot" src="_images/combined_data_heatmap.png" /></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">high_cor</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/top_cor.csv&#39;</span><span class="p">)</span>
+<span class="n">high_cor</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unnamed: 0</th>
+      <th>SalePrice</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>OverallQual</td>
+      <td>0.790982</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>YearBuilt</td>
+      <td>0.522897</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>YearRemodAdd</td>
+      <td>0.507101</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>ExterQual</td>
+      <td>-0.636884</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>BsmtQual</td>
+      <td>-0.620886</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>TotalBsmtSF</td>
+      <td>0.613581</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>1stFlrSF</td>
+      <td>0.605852</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>GrLivArea</td>
+      <td>0.708624</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>FullBath</td>
+      <td>0.560664</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>KitchenQual</td>
+      <td>-0.589189</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>TotRmsAbvGrd</td>
+      <td>0.533723</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>GarageFinish</td>
+      <td>-0.549247</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>GarageCars</td>
+      <td>0.640409</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>GarageArea</td>
+      <td>0.623431</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>SalePrice</td>
+      <td>1.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>This result conveys two important information regarding this dataset.</p>
+<ol class="simple">
+<li><p>We initially expected that many varibales will be highly inter-correlated each other (For example, if overall quality is high, then external quality and bathroom quality will be high as well), but suprisingly we have very few of them are correlated. Lots of variable have inter-correlation less than 0.5.</p></li>
+<li><p>It is interesting to see that some qualities are negatively correlated with other variables, while overall qualities shows the highest correlation with other variables. Only variables on quality shows some unexpected behavior than other variables.</p></li>
+</ol>
+<p>From our correlation matrix, we can conclude that we are good to use this dataset for our analysis, since we don’t have too many correlating variables.
+Also, it looks like we don’t have to eliminate any feature, since every variables has correlation less than 0.8.</p>
+</div>
+<div class="section" id="observation-on-saleprice">
+<h2>Observation on SalePrice<a class="headerlink" href="#observation-on-saleprice" title="Permalink to this headline">¶</a></h2>
+<p>We also want to observe whether our SalePrice is normally distributed or not. In many occasion, normality of output variable doe not matter in building random forest model, but since we are more interested in finding variable importance than building a predictive model, it will be much safer if we normalize our output variables.</p>
+<p><img alt="density_plot" src="_images/SalePriceDensityPlot.png" /></p>
+<p><img alt="qq_plot" src="_images/SalePriceProbabilityPlot.png" /></p>
+<p>From the density plot and and Q-Q plot (Probability Plot), we can observe that we have two issues in normality.</p>
+<ol class="simple">
+<li><p>Our graph is right-skewed that it might need some transformation to center this more.</p></li>
+<li><p>According to our probability plot, our graph is very not normal in right ends of the distribution.</p></li>
+</ol>
+<p>In order to resolve this issue, log-transformation should be done!</p>
+<p><img alt="density_plot" src="_images/Log_SalePriceDensityPlot.png" /></p>
+<p><img alt="qq_plot" src="_images/Log_SalePriceProbabilityPlot.png" /></p>
+<p>After our log transformation, we can observe that all problems that we talked about previously solved perfectly. Our graph now looks very normal with good center. We will use our transfomed ourput to fit our random forest model.</p>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="fitting-a-random-forest-model-and-variable-improtance">
+<h1>Fitting a Random Forest Model and Variable Improtance<a class="headerlink" href="#fitting-a-random-forest-model-and-variable-improtance" title="Permalink to this headline">¶</a></h1>
+<p>In order to fit our random forest model, we are seperating our dataset into training and test dataset, so that later, we can calculate MSE to validate our model and its result regarding variable importance.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random_state=12)
+rf = RandomForestRegressor(n_estimators=500)
+rf.fit(X_train, y_train)
+</pre></div>
+</div>
+<p>After we fit our random forest model using the training set, we can observe which variables brought the biggest decrease in MSE when our random forest model tried to predict the result. We found top 45 variables that brought the large decrease in MSE, which means they are the most important variables in determining the sale price of the house.</p>
+<p><img alt="45_var" src="_images/Top_45_Combined_Encoding_Feature_Importance.png" /></p>
+<p>From this chart, we can observe that some variables are definitely more important than other variable in determining sale price of the house. However, we can also see that some variable shows very small decrease in MSE and they don’t even need to be included in our chart. Therefore, we will adjust our threshold level from 0.001 to 0.01 so that we can only observe 11 important variables.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">top_11_var</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/top_11_variable.csv&#39;</span><span class="p">)</span>
+<span class="n">top_11_var</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unnamed: 0</th>
+      <th>values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>YearBuilt</td>
+      <td>0.010081</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>CentralAir</td>
+      <td>0.011300</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>LotArea</td>
+      <td>0.011440</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>GarageCars</td>
+      <td>0.014981</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>GarageArea</td>
+      <td>0.015328</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>YearRemodAdd</td>
+      <td>0.016872</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>TotalBsmtSF</td>
+      <td>0.024395</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>1stFlrSF</td>
+      <td>0.026097</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>BsmtFinSF1</td>
+      <td>0.028458</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>GrLivArea</td>
+      <td>0.099252</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>OverallQual</td>
+      <td>0.592922</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p><img alt="45_var" src="_images/Top_11_Combined_Encoding_Feature_Importance.png" /></p>
+<p>From this chart, we can observe that the top 5 most important variables in determining Sales Price of House are</p>
+<ol class="simple">
+<li><p>OverallQual - Overall material and finish quality</p></li>
+<li><p>GrLivArea - Above grade (ground) living area square feet</p></li>
+<li><p>BsmFinSF1 - Type 1 finished square feet</p></li>
+<li><p>1stFlrSF - First Floor square feet</p></li>
+<li><p>TotalBsmtSF - Total square feet of basement area</p></li>
+</ol>
+<p>This is somewhat very obvious result that two most important quality in determining house price are quality and size of the house. It shows that living room, first floor and basement are the three most important rooms of the house in determining the house price. Interestingly, year bulit and whether the house has air condition or not was very important features in determing the house price.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">error</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/Combined_Error_Table.csv&#39;</span><span class="p">)</span>
+<span class="n">error</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Type of Error</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>MSE</td>
+      <td>0.022994</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>RMSE</td>
+      <td>0.151639</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Adj R^2 Value</td>
+      <td>0.867835</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>If we examine error of our model, we can see that our model was pretty good model in predicting the house price, so our variable importance plot will be most likely to be accurate as well.</p>
+<div class="section" id="author-contributions">
+<h2>Author Contributions:<a class="headerlink" href="#author-contributions" title="Permalink to this headline">¶</a></h2>
+<p>Isaac: Initial Code with Random Forest Analysis. Writing scripts for main.ipynb</p>
+<p>Brandon:</p>
+<p>Raj:</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="README.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Predicing Housing Prices Based on What Homebuyers Care About Most</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="combined.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Data Import</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Dae Hyeun (Isaac) Cheong, Brandon Hong, Raj Dasani<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
