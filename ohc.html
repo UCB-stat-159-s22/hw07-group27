@@ -304,6 +304,18 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="nn">Input In [1],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;numpy&#39;
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -599,7 +611,7 @@ Name: SalePrice, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/srv/conda/envs/notebook/lib/python3.9/site-packages/seaborn/distributions.py:2619: FutureWarning: `distplot` is a deprecated function and will be removed in a future version. Please adapt your code to use either `displot` (a figure-level function with similar flexibility) or `histplot` (an axes-level function for histograms).
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/srv/conda/envs/housetools/lib/python3.10/site-packages/seaborn/distributions.py:2619: FutureWarning: `distplot` is a deprecated function and will be removed in a future version. Please adapt your code to use either `displot` (a figure-level function with similar flexibility) or `histplot` (an axes-level function for histograms).
   warnings.warn(msg, FutureWarning)
 </pre></div>
 </div>
@@ -615,7 +627,7 @@ Name: SalePrice, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/srv/conda/envs/notebook/lib/python3.9/site-packages/seaborn/distributions.py:2619: FutureWarning: `distplot` is a deprecated function and will be removed in a future version. Please adapt your code to use either `displot` (a figure-level function with similar flexibility) or `histplot` (an axes-level function for histograms).
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/srv/conda/envs/housetools/lib/python3.10/site-packages/seaborn/distributions.py:2619: FutureWarning: `distplot` is a deprecated function and will be removed in a future version. Please adapt your code to use either `displot` (a figure-level function with similar flexibility) or `histplot` (an axes-level function for histograms).
   warnings.warn(msg, FutureWarning)
 </pre></div>
 </div>
@@ -627,6 +639,16 @@ Name: SalePrice, dtype: float64
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ohc_data</span><span class="p">[</span><span class="s1">&#39;SalePrice&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">ohc_data</span><span class="p">[</span><span class="s1">&#39;SalePrice&#39;</span><span class="p">])</span>
 <span class="n">ohc_data</span> <span class="o">=</span> <span class="n">ohc_data</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;Log_SalePrice&#39;</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">Input In [1],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">ohc_data</span><span class="p">[</span><span class="s1">&#39;SalePrice&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">ohc_data</span><span class="p">[</span><span class="s1">&#39;SalePrice&#39;</span><span class="p">])</span>
+
+<span class="ne">NameError</span>: name &#39;np&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -693,24 +715,24 @@ Name: SalePrice, dtype: float64
   </thead>
   <tbody>
     <tr>
-      <th>BsmtQual_TA</th>
-      <td>0.001066</td>
+      <th>BsmtFullBath</th>
+      <td>0.001081</td>
     </tr>
     <tr>
-      <th>KitchenQual_Gd</th>
-      <td>0.001202</td>
+      <th>KitchenQual_Ex</th>
+      <td>0.001132</td>
     </tr>
     <tr>
-      <th>FireplaceQu_nan</th>
-      <td>0.001286</td>
-    </tr>
-    <tr>
-      <th>SaleCondition_Family</th>
-      <td>0.001319</td>
+      <th>Neighborhood_Crawfor</th>
+      <td>0.001156</td>
     </tr>
     <tr>
       <th>KitchenQual_TA</th>
-      <td>0.001340</td>
+      <td>0.001257</td>
+    </tr>
+    <tr>
+      <th>BsmtQual_TA</th>
+      <td>0.001313</td>
     </tr>
   </tbody>
 </table>
@@ -767,43 +789,43 @@ Name: SalePrice, dtype: float64
   <tbody>
     <tr>
       <th>MSZoning_C (all)</th>
-      <td>0.010591</td>
+      <td>0.010085</td>
     </tr>
     <tr>
       <th>LotArea</th>
-      <td>0.010761</td>
+      <td>0.011035</td>
     </tr>
     <tr>
       <th>GarageArea</th>
-      <td>0.013476</td>
-    </tr>
-    <tr>
-      <th>YearRemodAdd</th>
-      <td>0.016355</td>
+      <td>0.014288</td>
     </tr>
     <tr>
       <th>GarageCars</th>
-      <td>0.017849</td>
+      <td>0.016755</td>
+    </tr>
+    <tr>
+      <th>YearRemodAdd</th>
+      <td>0.017418</td>
     </tr>
     <tr>
       <th>TotalBsmtSF</th>
-      <td>0.024535</td>
+      <td>0.023808</td>
     </tr>
     <tr>
       <th>1stFlrSF</th>
-      <td>0.025682</td>
+      <td>0.025788</td>
     </tr>
     <tr>
       <th>BsmtFinSF1</th>
-      <td>0.030568</td>
+      <td>0.028824</td>
     </tr>
     <tr>
       <th>GrLivArea</th>
-      <td>0.099149</td>
+      <td>0.100983</td>
     </tr>
     <tr>
       <th>OverallQual</th>
-      <td>0.590138</td>
+      <td>0.590504</td>
     </tr>
   </tbody>
 </table>
@@ -840,9 +862,9 @@ Name: SalePrice, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MSE 0.023275415783478325
-RMSE 0.15256282569314952
-Adj R^2 value: 0.8662198003604029
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MSE 0.023397237595640556
+RMSE 0.15296155594017916
+Adj R^2 value: 0.8655196046473326
 </pre></div>
 </div>
 </div>

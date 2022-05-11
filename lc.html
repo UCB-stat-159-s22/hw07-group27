@@ -304,6 +304,18 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="nn">Input In [1],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;numpy&#39;
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -533,7 +545,7 @@ Name: SalePrice, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/srv/conda/envs/notebook/lib/python3.9/site-packages/seaborn/distributions.py:2619: FutureWarning: `distplot` is a deprecated function and will be removed in a future version. Please adapt your code to use either `displot` (a figure-level function with similar flexibility) or `histplot` (an axes-level function for histograms).
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/srv/conda/envs/housetools/lib/python3.10/site-packages/seaborn/distributions.py:2619: FutureWarning: `distplot` is a deprecated function and will be removed in a future version. Please adapt your code to use either `displot` (a figure-level function with similar flexibility) or `histplot` (an axes-level function for histograms).
   warnings.warn(msg, FutureWarning)
 </pre></div>
 </div>
@@ -549,7 +561,7 @@ Name: SalePrice, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/srv/conda/envs/notebook/lib/python3.9/site-packages/seaborn/distributions.py:2619: FutureWarning: `distplot` is a deprecated function and will be removed in a future version. Please adapt your code to use either `displot` (a figure-level function with similar flexibility) or `histplot` (an axes-level function for histograms).
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/srv/conda/envs/housetools/lib/python3.10/site-packages/seaborn/distributions.py:2619: FutureWarning: `distplot` is a deprecated function and will be removed in a future version. Please adapt your code to use either `displot` (a figure-level function with similar flexibility) or `histplot` (an axes-level function for histograms).
   warnings.warn(msg, FutureWarning)
 </pre></div>
 </div>
@@ -628,23 +640,23 @@ Name: SalePrice, dtype: float64
   <tbody>
     <tr>
       <th>ExterCond</th>
-      <td>0.001149</td>
+      <td>0.001118</td>
     </tr>
     <tr>
-      <th>BsmtFullBath</th>
-      <td>0.001263</td>
+      <th>PavedDrive</th>
+      <td>0.001167</td>
     </tr>
     <tr>
       <th>LotShape</th>
-      <td>0.001338</td>
+      <td>0.001196</td>
+    </tr>
+    <tr>
+      <th>BsmtFullBath</th>
+      <td>0.001271</td>
     </tr>
     <tr>
       <th>HeatingQC</th>
-      <td>0.001422</td>
-    </tr>
-    <tr>
-      <th>BsmtExposure</th>
-      <td>0.001510</td>
+      <td>0.001292</td>
     </tr>
   </tbody>
 </table>
@@ -662,7 +674,10 @@ Name: SalePrice, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/lc_20_0.png" src="_images/lc_20_0.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;BarContainer object of 45 artists&gt;
+</pre></div>
+</div>
+<img alt="_images/lc_20_1.png" src="_images/lc_20_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -700,48 +715,52 @@ Name: SalePrice, dtype: float64
   </thead>
   <tbody>
     <tr>
+      <th>YearBuilt</th>
+      <td>0.010080</td>
+    </tr>
+    <tr>
       <th>CentralAir</th>
-      <td>0.011084</td>
+      <td>0.011582</td>
     </tr>
     <tr>
       <th>LotArea</th>
-      <td>0.011528</td>
+      <td>0.011840</td>
     </tr>
     <tr>
       <th>GarageArea</th>
-      <td>0.013996</td>
-    </tr>
-    <tr>
-      <th>YearRemodAdd</th>
-      <td>0.016781</td>
+      <td>0.013605</td>
     </tr>
     <tr>
       <th>MSZoning</th>
-      <td>0.016968</td>
+      <td>0.016032</td>
     </tr>
     <tr>
       <th>GarageCars</th>
-      <td>0.019248</td>
+      <td>0.017777</td>
+    </tr>
+    <tr>
+      <th>YearRemodAdd</th>
+      <td>0.018228</td>
     </tr>
     <tr>
       <th>TotalBsmtSF</th>
-      <td>0.023396</td>
+      <td>0.024533</td>
     </tr>
     <tr>
       <th>1stFlrSF</th>
-      <td>0.027145</td>
+      <td>0.027243</td>
     </tr>
     <tr>
       <th>BsmtFinSF1</th>
-      <td>0.028902</td>
+      <td>0.027307</td>
     </tr>
     <tr>
       <th>GrLivArea</th>
-      <td>0.099680</td>
+      <td>0.098678</td>
     </tr>
     <tr>
       <th>OverallQual</th>
-      <td>0.589056</td>
+      <td>0.592523</td>
     </tr>
   </tbody>
 </table>
@@ -778,9 +797,9 @@ Name: SalePrice, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MSE 0.023055229822417964
-RMSE 0.15183948703291236
-Adj R^2 value: 0.8674853640823365
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MSE 0.00015989179376242943
+RMSE 0.012644832690171484
+Adj R^2 value: 0.8642769485910046
 </pre></div>
 </div>
 </div>
