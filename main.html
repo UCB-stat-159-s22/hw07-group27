@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>What Do Home-Buyer Care About? &#8212; STAT 159 Homework 7</title>
+    <title>What Do Home-Buyers Care About? &#8212; STAT 159 Homework 7</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
   <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -104,7 +104,7 @@
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   What Do Home-Buyer Care About?
+   What Do Home-Buyers Care About?
   </a>
  </li>
  <li class="toctree-l1">
@@ -218,7 +218,7 @@
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
-   What Do Home-Buyer Care About?
+   What Do Home-Buyers Care About?
   </a>
  </li>
  <li class="toc-h1 nav-item toc-entry">
@@ -260,7 +260,7 @@
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>What Do Home-Buyer Care About?</h1>
+                <h1>What Do Home-Buyers Care About?</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -272,7 +272,7 @@
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
-   What Do Home-Buyer Care About?
+   What Do Home-Buyers Care About?
   </a>
  </li>
  <li class="toc-h1 nav-item toc-entry">
@@ -313,8 +313,13 @@
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="what-do-home-buyer-care-about">
-<h1>What Do Home-Buyer Care About?<a class="headerlink" href="#what-do-home-buyer-care-about" title="Permalink to this headline">¶</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="what-do-home-buyers-care-about">
+<h1>What Do Home-Buyers Care About?<a class="headerlink" href="#what-do-home-buyers-care-about" title="Permalink to this headline">¶</a></h1>
+<p>The question we sought to analyze is the following: Which factors most influence the price of the home?</p>
+<p>The goal of our research is to give home-seller a better understanding of which features add to the value of a home, allowing sellers to use these influences price-negotiation with buyers! We will try to find the answer for this question by exploring a dataset consistenting of every aspect of residential homes in Ames, Iowa, and finding which ones correlate most to Price. We will mainly use the <strong>Random Forest</strong> model to figure out which variables are the most critical to deciding the housing price in Ames.</p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="exploratory-data-analysis-on-the-house-price-csv">
+<h1>Exploratory Data Analysis on the House_Price.csv<a class="headerlink" href="#exploratory-data-analysis-on-the-house-price-csv" title="Permalink to this headline">¶</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -332,13 +337,10 @@
 </div>
 </div>
 </div>
-<p>What do home-buyer care about? This is a question that any home-seller will be interested! The answer for this question will make sure that home-seller puts much more influence in price-negotiation with buyers! We will try to find the answer for this question by exploring dataset about House Price, which has 79 explanatory variables describing every aspect of residential homes in Ames, Iowa. We will mainly use <strong>Random Forest</strong> model to figure out which variables are the most important one to decide the housing price in Ames.</p>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="exploratory-data-analysis-on-the-house-price-csv">
-<h1>Exploratory Data Analysis on the House_Price.csv<a class="headerlink" href="#exploratory-data-analysis-on-the-house-price-csv" title="Permalink to this headline">¶</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/House_Price.csv&#39;</span><span class="p">)</span>
+<span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -522,10 +524,10 @@
 </div>
 </div>
 </div>
-<p>The House_Price.csv is consist of 81 columns and 1460 rows. However, we will only use 79 columns for our feature because it includes ID columns, whcih is useless and SalePrice is our output columns, which should not be included as one of the features. First of all, we will use label and one-hot encoding to convert our categorical varibles into dummy variables so that we can start the analysis. We mixed both encoding method, since we figured out that for ordinal categorical variable, the label encoding works better, and for cardinal categorical variable, one-hot encoding works better.</p>
+<p>The House_Price.csv consists of 1460 rows, with each row representing a single house on the market. It has 81 columns, which are the features of each house, however, we will only use 79 columns as out features after we take out ID columns, which do not represent anything, and SalePrice, which is our predicting variable. First of all, we will use label and one-hot encoding to convert our categorical varibles into dummy variables so that we can start the analysis. We mixed both encoding methods, since we figured out that for ordinal categorical variables, the label encoding works better, and for cardinal categorical variables, one-hot encoding works better.</p>
 <div class="section" id="feature-correlation">
 <h2>Feature Correlation<a class="headerlink" href="#feature-correlation" title="Permalink to this headline">¶</a></h2>
-<p>First, we will observe the dataset, and see if we have any inter-relationship between feature that shows high correlation. We don’t have to do any feature selection because first, we don’t have lots of features to investigate, and second, the random forest model’s accuracy doesn’t get suffered from collinearity. Despite of these fact, we want to observe its inter-correlation since observing highly interacting variables might give us some hint to our question, and sometimes removing highly correlated variables help us to mitigate possible danger of overfitting.</p>
+<p>First, we will observe the dataset, and see if we have any inter-relationship between features that shows high correlation. We don’t have to do any feature selection because first, we don’t have lots of features to investigate, and second, the random forest model’s accuracy doesn’t get suffered from collinearity. Despite these, we want to observe its inter-correlation since observing highly interacting variables might give us some hint to our overall question, and removing highly correlated variables can help us mitigate the possible dangers and impacts of overfitting.</p>
 <p>This is the correlation matrix and list of features that have high inter-correlation between the other variables (more than 0.5).</p>
 <p><img alt="correlation_plot" src="_images/combined_data_heatmap.png" /></p>
 <div class="cell docutils container">
@@ -638,28 +640,28 @@
 </table>
 </div></div></div>
 </div>
-<p>This result conveys two important information regarding this dataset.</p>
+<p>This result conveys two important pieces of information regarding this dataset.</p>
 <ol class="simple">
-<li><p>We initially expected that many varibales will be highly inter-correlated each other (For example, if overall quality is high, then external quality and bathroom quality will be high as well), but suprisingly we have very few of them are correlated. Lots of variable have inter-correlation less than 0.5.</p></li>
-<li><p>It is interesting to see that some qualities are negatively correlated with other variables, while overall qualities shows the highest correlation with other variables. Only variables on quality shows some unexpected behavior than other variables.</p></li>
+<li><p>We initially expected that many varibales will be highly inter-correlated each other (For example, if overall quality is high, then external quality and bathroom quality will be high as well), but suprisingly we have very few of them are correlated. Most of our variables have inter-correlation less than 0.5.</p></li>
+<li><p>It is interesting to see that some qualities are negatively correlated with other variables, while overall qualities shows positive correlations with other variables. Only variables on quality shows some unexpected behavior than other variables.</p></li>
 </ol>
 <p>From our correlation matrix, we can conclude that we are good to use this dataset for our analysis, since we don’t have too many correlating variables.
-Also, it looks like we don’t have to eliminate any feature, since every variables has correlation less than 0.8.</p>
+Also, it looks like we don’t have to eliminate any features, since every variable has a correlation of less than 0.8.</p>
 </div>
 <div class="section" id="observation-on-saleprice">
 <h2>Observation on SalePrice<a class="headerlink" href="#observation-on-saleprice" title="Permalink to this headline">¶</a></h2>
-<p>We also want to observe whether our SalePrice is normally distributed or not. In many occasion, normality of output variable doe not matter in building random forest model, but since we are more interested in finding variable importance than building a predictive model, it will be much safer if we normalize our output variables.</p>
+<p>We also want to observe whether our SalePrice is normally distributed or not. In many occasions, normality of output variables do not matter when building a random forest model, but since we are more interested in finding variable importance than building a predictive model, it will be much safer if we normalize our output variables.</p>
 <p><img alt="density_plot" src="_images/SalePriceDensityPlot.png" /></p>
 <p><img alt="qq_plot" src="_images/SalePriceProbabilityPlot.png" /></p>
 <p>From the density plot and and Q-Q plot (Probability Plot), we can observe that we have two issues in normality.</p>
 <ol class="simple">
-<li><p>Our graph is right-skewed that it might need some transformation to center this more.</p></li>
-<li><p>According to our probability plot, our graph is very not normal in right ends of the distribution.</p></li>
+<li><p>Our graph is right-skewed, so it might need some transformation to center this more.</p></li>
+<li><p>According to our probability plot, our graph is very not normal in the right ends of the distribution.</p></li>
 </ol>
 <p>In order to resolve this issue, log-transformation should be done!</p>
 <p><img alt="density_plot" src="_images/Log_SalePriceDensityPlot.png" /></p>
 <p><img alt="qq_plot" src="_images/Log_SalePriceProbabilityPlot.png" /></p>
-<p>After our log transformation, we can observe that all problems that we talked about previously solved perfectly. Our graph now looks very normal with good center. We will use our transfomed ourput to fit our random forest model.</p>
+<p>After our log transformation, we can observe that all problems that we talked about previously solved perfectly. Our graph now looks very normal with a good center. We will use our transfomed ourput to fit our random forest model.</p>
 </div>
 </div>
 <div class="tex2jax_ignore mathjax_ignore section" id="fitting-a-random-forest-model-and-variable-improtance">
@@ -670,9 +672,9 @@ rf = RandomForestRegressor(n_estimators=500)
 rf.fit(X_train, y_train)
 </pre></div>
 </div>
-<p>After we fit our random forest model using the training set, we can observe which variables brought the biggest decrease in MSE when our random forest model tried to predict the result. We found top 45 variables that brought the large decrease in MSE, which means they are the most important variables in determining the sale price of the house.</p>
+<p>After we fit our random forest model using the training set, we can observe which variables brought the biggest decrease in MSE when our random forest model tried to predict the result. We found the top 45 variables that brought the large decrease in MSE, meaning they are the most important variables in determining the sale price of the house.</p>
 <p><img alt="45_var" src="_images/Top_45_Combined_Encoding_Feature_Importance.png" /></p>
-<p>From this chart, we can observe that some variables are definitely more important than other variable in determining sale price of the house. However, we can also see that some variable shows very small decrease in MSE and they don’t even need to be included in our chart. Therefore, we will adjust our threshold level from 0.001 to 0.01 so that we can only observe 11 important variables.</p>
+<p>From this chart, we can observe that some variables are definitely more important than other variabled in determining sale price of the house. However, we can also see that some variable shows very small decrease in MSE and they don’t even need to be included in our chart. Therefore, we will adjust our threshold level from 0.001 to 0.01, leaving us with our 11 most important variables.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">top_11_var</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/top_11_variable.csv&#39;</span><span class="p">)</span>
@@ -706,58 +708,58 @@ rf.fit(X_train, y_train)
   <tbody>
     <tr>
       <th>0</th>
-      <td>YearBuilt</td>
-      <td>0.010081</td>
+      <td>MSZoning_C (all)</td>
+      <td>0.010421</td>
     </tr>
     <tr>
       <th>1</th>
       <td>CentralAir</td>
-      <td>0.011300</td>
+      <td>0.010714</td>
     </tr>
     <tr>
       <th>2</th>
       <td>LotArea</td>
-      <td>0.011440</td>
+      <td>0.011180</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>GarageCars</td>
-      <td>0.014981</td>
+      <td>GarageArea</td>
+      <td>0.016340</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>GarageArea</td>
-      <td>0.015328</td>
+      <td>YearRemodAdd</td>
+      <td>0.016502</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>YearRemodAdd</td>
-      <td>0.016872</td>
+      <td>GarageCars</td>
+      <td>0.017475</td>
     </tr>
     <tr>
       <th>6</th>
       <td>TotalBsmtSF</td>
-      <td>0.024395</td>
+      <td>0.023750</td>
     </tr>
     <tr>
       <th>7</th>
       <td>1stFlrSF</td>
-      <td>0.026097</td>
+      <td>0.024841</td>
     </tr>
     <tr>
       <th>8</th>
       <td>BsmtFinSF1</td>
-      <td>0.028458</td>
+      <td>0.029312</td>
     </tr>
     <tr>
       <th>9</th>
       <td>GrLivArea</td>
-      <td>0.099252</td>
+      <td>0.098964</td>
     </tr>
     <tr>
       <th>10</th>
       <td>OverallQual</td>
-      <td>0.592922</td>
+      <td>0.591727</td>
     </tr>
   </tbody>
 </table>
@@ -772,7 +774,7 @@ rf.fit(X_train, y_train)
 <li><p>1stFlrSF - First Floor square feet</p></li>
 <li><p>TotalBsmtSF - Total square feet of basement area</p></li>
 </ol>
-<p>This is somewhat very obvious result that two most important quality in determining house price are quality and size of the house. It shows that living room, first floor and basement are the three most important rooms of the house in determining the house price. Interestingly, year bulit and whether the house has air condition or not was very important features in determing the house price.</p>
+<p>This is somewhat a very obvious result: the two most important qualities in determining house price are overall quality rating and size of the house. But what we also found out was that the living room, the overall first floor and the basement are the three most important rooms of the house in determining the house price. Interestingly, year bulit and whether the house has air condition or not were not very important features in determing the house price.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">error</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/Combined_Error_Table.csv&#39;</span><span class="p">)</span>
@@ -807,28 +809,28 @@ rf.fit(X_train, y_train)
     <tr>
       <th>0</th>
       <td>MSE</td>
-      <td>0.022994</td>
+      <td>0.023271</td>
     </tr>
     <tr>
       <th>1</th>
       <td>RMSE</td>
-      <td>0.151639</td>
+      <td>0.152548</td>
     </tr>
     <tr>
       <th>2</th>
       <td>Adj R^2 Value</td>
-      <td>0.867835</td>
+      <td>0.866245</td>
     </tr>
   </tbody>
 </table>
 </div></div></div>
 </div>
-<p>If we examine error of our model, we can see that our model was pretty good model in predicting the house price, so our variable importance plot will be most likely to be accurate as well.</p>
+<p>If we examine error of our model, we can see that our model was pretty good in predicting the house price, so our variable importance plot will be most likely to be accurate as well.</p>
 <div class="section" id="author-contributions">
 <h2>Author Contributions:<a class="headerlink" href="#author-contributions" title="Permalink to this headline">¶</a></h2>
 <p>Isaac: Initial Code with Random Forest Analysis. Writing scripts for main.ipynb. Made Jupyterbook/guthub site as well as github action</p>
 <p>Brandon:</p>
-<p>Raj:</p>
+<p>Raj: I focused a lot more on the clean-up aspects of this project. I wrote out the plotting function for all our plots above in order to add that into the package, and not have it here on our final doc. Additionally, I cleaned up and wrote out some of the text above in order to make the story flow throughout, and make it an easier read overall. Finally, I added our license to our GitHub and a README to the doc.</p>
 </div>
 </div>
 
