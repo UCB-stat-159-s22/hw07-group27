@@ -1,4 +1,4 @@
-Predicing Housing Prices Based on What Homebuyers Care about Most
+## Predicing Housing Prices Based on What Homebuyers Care About Most
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/UCB-stat-159-s22/hw07-group27.git/HEAD)
 Binder ** Add Binder badge and link here**
