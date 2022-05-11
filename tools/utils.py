@@ -44,7 +44,7 @@ def label_encoder(data, column_name):
 def dist_and_prob_plot(data, column_name):
     fig = plt.figure()
     sns.distplot(data[column_name],fit=norm)
-    fig.savefig('figures/' + column_name + 'Density Plot')
+    fig.savefig('figures/' + column_name + 'DensityPlot')
     fig2 = plt.figure()
     stats.probplot(data[column_name], plot=plt)
-    fig2.savefig('figures/' + column_name + 'Probability Plot')
+    fig2.savefig('figures/' + column_name + 'ProbabilityPlot')

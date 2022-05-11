@@ -29,7 +29,7 @@ def test_label_encoder():
 def test_dist_and_prob_plot():
     data = pd.read_csv('data/House_Price.csv')
     util.dist_and_prob_plot(data, 'SalePrice')
-    assert exists('figures/' + 'SalePrice' + 'Density Plot' + '.png')
-    assert exists('figures/' + 'SalePrice' + 'Probability Plot' + '.png')
-    remove('figures/' + 'SalePrice' + 'Density Plot' + '.png')
-    remove('figures/' + 'SalePrice' + 'Probability Plot' + '.png')
+    assert exists('figures/' + 'SalePrice' + 'DensityPlot' + '.png')
+    assert exists('figures/' + 'SalePrice' + 'ProbabilityPlot' + '.png')
+    remove('figures/' + 'SalePrice' + 'DensityPlot' + '.png')
+    remove('figures/' + 'SalePrice' + 'ProbabilityPlot' + '.png')
