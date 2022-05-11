@@ -25,6 +25,6 @@ html-hub:
 
 .PHONY : all
 all:
-	jupyter execute ohc.ipynb
-	jupyter execute lc.ipynb
 	jupyter execute combined.ipynb
+	jupyter execute main.ipynb
+
